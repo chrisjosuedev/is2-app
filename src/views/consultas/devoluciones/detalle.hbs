@@ -1,0 +1,107 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item"><a href="/consultas/devoluciones">General</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detalle de Devolucion</li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Detalle de la Devolucion </h1>
+
+    <div class="col-md-12">
+
+        <div class="card mb-2">
+            <div class="card-header font-weight-bold">
+                <i class="fas fa-list"></i> General
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <p> <strong> N° Factura: </strong> </p>
+                        <h5> {{devolucionVenta.ID_FAC}} </h5>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p> <strong>Atendió:</strong> </p>
+                        <h5> {{devolucionVenta.Empleado}} </h5>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p> <strong>Fecha:</strong> </p>
+                        <h5> {{format devolucionVenta.FECHA}} <br>
+                            {{hourFormat devolucionVenta.FECHA}} </h5>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p> <strong>Tipo:</strong> </p>
+                        <h5> {{#if TIPO}}
+                            TOTAL
+                            {{else}}
+                            PARCIAL
+                            {{/if}} </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card mb-2">
+            <div class="card-header font-weight-bold">
+                <i class="fas fa-list"></i> Lista Detalle
+            </div>
+            <div class="card-body">
+
+                <table class="table table-striped" id="detalle-venta">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Cant.</th>
+                            <th scope="col">Precio U.</th>
+                            <th scope="col">ST.</th>
+                            <th scope="col">Desc.</th>
+                            <th scope="col">Obs.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each devolucionDetails}}
+                        <tr>
+                            <td>
+                                {{ID_ARTICULO}}
+                            </td>
+                            <td>
+                                {{DESCRIPCION}}
+                            </td>
+                            <td>
+                                {{CANTIDAD}}
+                            </td>
+                            <td>
+                                L. {{PRECIO_UNIT}}
+                            </td>
+                            <td> L. {{SUBTOTAL}} </td>
+                            <td>
+                                {{DESCUENTO}}
+                            </td>
+                            <td>
+                                {{OBS}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <div class="form-group col-md-2 float-right">
+                    <label> Subtotal</label>
+                    <input type="text" id="st-venta" class="form-control" placeholder="Subtotal" disabled value="">
+                    <label class="mt-2"> Descuentos</label>
+                    <input type="text" id="desc-st" class="form-control " placeholder="L. 0.00" value="" disabled>
+                    <label class="mt-2"> ISV </label>
+                    <input type="text" id="isv" class="form-control " placeholder="ISV" disabled value="">
+                    <label class="mt-2"> Total (-) </label>
+                    <input type="text" id="total" class="form-control text-danger" placeholder="Total" disabled value="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/consultas/ventas-detalle.js"></script>

@@ -1,0 +1,67 @@
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-secondary">Listado de Empleados</h6>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+
+        <table class="table table-bordered" id="dataEmpleados" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Empleado</th>
+                    <th>Sexo</th>
+                    <th>Celular</th>
+                    <th>Puesto</th>
+                    <th>Contratado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Empleado</th>
+                    <th>Sexo</th>
+                    <th>Celular</th>
+                    <th>Puesto</th>
+                    <th>Contratado</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {{#each persona_empleado}}
+                <tr >
+                    <td>
+                        {{ID_PERSONA}}
+                    </td>
+                    <td>
+                        {{EMPLEADO}}
+                    </td>
+                    <td>
+                        {{SEXO}}
+                    </td>
+                    <td>
+                        {{CELULAR}}
+                    </td>
+                    <td>
+                        {{DESCRIPCION_CATEGORIA}}
+                    </td>
+                     <td>
+                        {{format FECHA_CONTRATACION}}
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn-primary editEmpleado"
+                            data-toggle="modal" data-target="#editEmpleado"
+                            data-empleado="{{ID_PERSONA}}">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                        <button id="{{ID_EMPLEADO}}" class="btn btn-warning cancel-item mt-2 cancel-empleado">
+                            <i class="fas fa-ban"></i>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</div>

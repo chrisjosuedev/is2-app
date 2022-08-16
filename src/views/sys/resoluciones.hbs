@@ -1,0 +1,82 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Resolucion </li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Resolucion SAR </h1>
+    <div class="row mb-4">
+        {{#each resolucionData}}
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <i class="fas fa-check-circle"></i> CONFIGURACION DE RESOLUCIÓN
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <a href="/sys/resoluciones/edit/{{ID_RESOLUCION}}" class="text-decoration-none text-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a id="{{ID_RESOLUCION}}" class="text-decoration-none text-danger del-resolucion" role="button">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+
+                    <label>Resolucion CAI</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <p> <strong> {{CAI}} </strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Serie</label>
+                            <p> <strong> {{SERIE}} </strong></p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Rango Inicial</label>
+                            <p> <strong> {{NUM_INICIAL}} </strong></p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Rango Final</label>
+                            <p> <strong> {{NUM_FINAL}} </strong></p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Fecha Limite de Resolucion</label>
+                            <p> <strong> {{FECHA_LIMITE}} </strong></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Notificarme vencimiento en</label>
+                            <p> <strong> {{NOTIFICAR}} días</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {{else}}
+        <div class="col-md-8 mx-auto">
+            <div class="card card-body text-center">
+                <p> No hay ninguna Resolucion Registrada. </p>
+                <a href="/sys/resoluciones/agregar">
+                    <i class="fas fa-plus-circle"></i>
+                    Registrar nueva Resolucion </a>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
+
+{{!-- Scripts SRC --}}
+<script src="/js/empresa/resoluciones.js"></script>

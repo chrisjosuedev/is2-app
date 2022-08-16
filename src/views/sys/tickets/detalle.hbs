@@ -1,0 +1,101 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> <a href="/sys/tickets">General</a> </li>
+            <li class="breadcrumb-item active" aria-current="page">Detalle Ticket</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-check-circle"></i> MANTENIMIENTO TICKET
+                </div>
+                <div class="card-body">
+                    <label>Asunto</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control to-mayus" value="{{ticketsData.ASUNTO}}" disabled
+                                required>
+                        </div>
+                    </div>
+
+                    <label>Área</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control to-mayus"
+                                value="{{ticketsData.DESCRIPCION_CATEGORIA}}" disabled required>
+                        </div>
+                    </div>
+
+                    <label>Descripción</label>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-12">
+
+                            <textarea class="form-control" name="observaciones" id="" rows="3"
+                                disabled>{{ticketsData.DESCRIPCION}}</textarea>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <a href="{{ticketsData.IMG_ADJUNTA}}" class="img-file d-none" target="_blank"> Click para
+                                ver
+                                archivo adjunto.</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-comment"></i> COMENTARIOS
+                </div>
+                <div class="card-body">
+
+                    <label class="font-weight-bold">Comentario:</label>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-12">
+                            <p>
+                                {{ticketsData.COMENTARIO}}
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <label class="font-weight-bold">Estado:</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <p>
+                                {{#if ticketsData.RESOLUCION}}
+                                Resuelto
+                                {{else}}
+                                No Resuelto
+                                {{/if}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const href = $(".img-file").attr("href")
+    if (!href) {
+        $(".img-file").addClass('d-none')
+    } else {
+        $(".img-file").removeClass('d-none')
+    }
+</script>

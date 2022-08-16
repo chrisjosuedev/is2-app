@@ -1,0 +1,107 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> <a href="/consultas/arqueos">General</a> </li>
+            <li class="breadcrumb-item active" aria-current="page">Detalle Arqueo</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-check-circle"></i> DETALLE ARQUEO DIARIO
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="col-md-12 alert alert-warning d-none" role="alert" id="alert">
+                            A simple danger alert—check it out!
+                        </div>
+                    </div>
+                    <form action="/consultas/arqueos/edit/{{arqueoData.ID_ARQUEOS}}" method="post" class="resolucion">
+                        <label>Fecha:</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control to-mayus"
+                                    value="{{format arqueoData.FECHA}} {{hourFormat arqueoData.FECHA}}" disabled
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>Saldo Registrado</label>
+                                <input type="text" class="form-control" id="num_inicial" name="num_inicial"
+                                    value="{{arqueoData.SALDO_REGISTRADO}}" disabled required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Saldo Caja</label>
+                                <input type="text" class="form-control" id="num_final" name="num_final"
+                                    value="{{arqueoData.SALDO_CAJA}}" disabled required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-12">
+                                <label>Empleado realizó:</label>
+                                <input type="text" class="form-control" value="{{arqueoData.REALIZADO_POR}}" required
+                                    disabled>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <label>Revisado por:</label>
+                            <div class="form-group col-md-12">
+                                {{!--- Codigo Empleado ¡¡¡¡Temporal!!!! --}}
+
+                                <input type="text" class="form-control" name="id_empleado_reviso" placeholder="Codigo"
+                                    value="{{user.ID_EMPLEADO}}" hidden>
+
+                                <input type="text" class="form-control" placeholder="Nombre Empleado"
+                                    value="{{user.NOMBRE}} {{user.APELLIDO}}" disabled>
+
+                            </div>
+
+
+                        </div>
+                        <label>Observaciones</label>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-12">
+
+                                <textarea class="form-control" name="observaciones" id=""
+                                    rows="5">{{arqueoData.OBSERVACIONES}}</textarea>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="custom-control custom-checkbox">
+                                    {{#if arqueoData.REVISADO}}
+                                    <input type="checkbox" class="custom-control-input" id="check" name="revisado"
+                                        checked>
+                                    {{else}}
+                                    <input type="checkbox" name="revisado" class="custom-control-input" name="revisado"
+                                        id="check">
+                                    {{/if}}
+                                    <label class="custom-control-label" for="check">
+                                        Revisado
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" id="procesar" class="btn btn-success float-right mb-4 mr-2">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

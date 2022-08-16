@@ -1,0 +1,49 @@
+<div class="container" style="margin-top: 50px;">
+  <div class="row justify-content-center">
+
+    <div class="col-xl-6 col-lg-6 col-md-9 mx-auto">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="p-5">
+                <div class="text-center mb-4">
+                  <box-icon name='expand-horizontal'></box-icon>
+                  <h1 class="h4 text-gray-900"> <strong> IS2 Solutions </strong></h1>
+                  <p class="brand"> Inicia Sesión </p>
+                </div>
+
+                <form action="/" method="post" class="user" id="login-form">
+                  <div class="form-group">
+                    <input type="text" class="form-control signin" name="username" aria-describedby="emailHelp"
+                      placeholder="Username" maxlength="60" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control signin" placeholder="Password" name="password"
+                      maxlength="60" required>
+                  </div>
+                  <div class="text-center mb-4">
+                    <a class="small forgot" href="/loginHelp">¿Ha olvidado su contraseña?</a>
+                  </div>
+                  <button type="submit" id="login-button" class="btn btn-dark btn-block">
+                    <span id="loading" class="spinner-border spinner-border-sm d-none" role="status"
+                      aria-hidden="true"></span>
+                    <span id="login-text"> Iniciar Sesión </span>
+                  </button>
+                  <hr>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{{!-- Script Auth --}}
+<script src="/js/auth/auth.js"></script>

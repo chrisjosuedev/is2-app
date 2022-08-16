@@ -1,0 +1,132 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active"><a href="/sys/mi-empresa/"> Mi Empresa </a></li>
+            <li class="breadcrumb-item active" aria-current="page">General</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                </symbol>
+            </svg>
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill" />
+                </svg>
+                <div>
+                    No existe empresa registrada, por favor llene los datos siguientes con la informacion correspondiente.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-industry"></i> DATOS GENERALES DE LA EMPRESA
+                </div>
+                <div class="card-body">
+                    <form action="/sys/mi-empresa/agregar" method="post" class="empresa">
+                        <label>R.T.N.</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="rtn_empresa" name="rtn_empresa"
+                                    maxlength="14" required>
+                                <div id="msg-rtn-valid" class="valid-feedback"></div>
+                            </div>
+                        </div>
+                        <label>Razón Social</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="razon_social" name="razon_social"
+                                    maxlength="50" required>
+                            </div>
+                        </div>
+                        <label>R.T.N. Representante Legal</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="rtn_rep" maxlength="14" name="rtn_rep_legal"
+                                    required>
+                                <div id="msg-reprtn-valid" class="valid-feedback"></div>
+                            </div>
+                        </div>
+                        <label>Nombre del Representante Legal</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="nombre_rep" name="rep_legal" maxlength="50"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Email de la Empresa</label>
+                                <input type="email" name="email" class="form-control" id="email" maxlength="50"
+                                    required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Teléfono de la Empresa</label>
+                                <input type="text" name="celular" class="form-control" id="celular" maxlength="8"
+                                    pattern="[0-9]{8}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6" id="tipo">
+                                <label>Departamento </label>
+                                <select id="select-depto" name="id_depto" class="custom-select depto" required>
+                                    {{#each departamentos}}
+                                    <option value="{{ID_DEPTO}}"> {{NOMBRE_DEPTO}} </option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Ciudad </label>
+                                <select id="select-ciudad" name="id_ciudad" class="custom-select ciudad" required>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label>Direccion de la Empresa</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <textarea class="form-control" name="direccion_empresa" id="direccion_residencia"
+                                    cols="30" rows="4" maxlength="50"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 alert alert-warning d-none" role="alert" id="alert">
+                                A simple danger alert—check it out!
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>Inicio Periodo</label>
+                                <input type="date" id="fecha_in" name="inicio_periodo" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Fin del Periodo</label>
+                                <input type="date" name="fin_periodo" id="fecha_final" class="form-control" required>
+                            </div>
+                        </div>
+                        <button type="submit" id="procesar" class="btn btn-success float-right mb-4 mr-2">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Scripts SRC --}}
+<script src="/js/empresa/empresa.js"></script>
+
+{{!-- Script de Select de Ciudad Dinamico --}}
+<script src="/js/ciudad.js"></script>

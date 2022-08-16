@@ -1,0 +1,52 @@
+<!-- Modal HTML -->
+<div id="newArticulo" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">AGREGAR NUEVO ARTÍCULO</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form action="/articulos" method="post">
+          <label> Datos Generales </label>
+          <div class="form-group">
+            <input type="text" class="form-control" name="descripcion" placeholder="Descripción del artículo" maxlength="50" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="marca"> Marca </label>
+              <select id="marca" name="id_marca" class="custom-select" required>
+                {{#each marca}}
+                <option value="{{ID_MARCA}}"> {{NOMBRE_MARCA}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="linea"> Tipo de Articulo </label>
+              <select id="linea" name="id_tipoarticulo" class="custom-select" required>
+                {{#each tipo_articulos}}
+                <option value="{{ID_TIPOARTICULO}}"> {{NOMBRE_TIPOARTICULO}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="precio"> Precio de Venta </label>
+              <input id="precio" type="number" min="0" step="0.01" class="form-control" 
+              name="precio_unit" placeholder="Precio" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="descuento"> Descuento (%) </label>
+              <input id="descuento" type="number" min="0" max="100" step="0.01" class="form-control" 
+              name="descuento" value="0.00" placeholder="Descuento" required>
+            </div>      
+          </div>
+          <button type="submit" class="btn btn-primary mt-4 float-right">
+            <i class="fas fa-save"></i> Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

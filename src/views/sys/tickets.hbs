@@ -1,0 +1,77 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tickets</li>
+        </ol>
+    </nav>
+    <div class="col-md-12">
+        <h1 class="mb-4"> Tickets </h1>
+
+        <div class="d-grid gap-2 d-md-block">
+            <div>
+                <a href="#newTicket" class="btn btn-success" data-toggle="modal">
+                    <i class="fas fa-plus-square mr-2"></i> Nuevo
+                </a>
+            </div>
+
+        </div>
+        <div class="row mt-4">
+            {{#each tickets}}
+            <div class="col-md-6 mt-2">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <i class="fas fa-angle-double-right"></i>
+                                <span class="font-weight-bold">ASUNTO:</span> {{ASUNTO}}
+                            </div>
+                            <div class="col-md-4">
+                                <span class="font-weight-bold">Ticket N°:</span> {{ID_TICKETS}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <label class="font-weight-bold">Creado:</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <p> {{format FECHA}} {{hourFormat FECHA}}</p>
+                            </div>
+                        </div>
+                        <label class="font-weight-bold">Estado:</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <p> 
+                                    {{#if RESOLUCION}}
+                                    Resuelto
+                                    {{else}}
+                                    No Resuelto
+                                    {{/if}}
+                                </p>
+                            </div>
+                        </div>
+                        <a href="/sys/tickets/detalle/{{ID_TICKETS}}"> Ver detalle </a>
+                    </div>
+                </div>
+
+            </div>
+            {{else}}
+            <div class="col-md-8 mx-auto">
+                <div class="card card-body text-center">
+                    <p> No ha solicitado ningún ticket hasta el momento. </p>
+                    <a href="#newTicket" data-toggle="modal">
+                        <i class="fas fa-plus-circle"></i>
+                        Nuevo Ticket </a>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+</div>
+
+{{> tickets/add }}
+
+{{!-- Scripts SRC --}}
+<script src="/js/tickets/tickets.js"></script>

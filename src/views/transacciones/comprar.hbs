@@ -1,0 +1,207 @@
+<div class="container p-4">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Compras </li>
+        </ol>
+    </nav>
+    <h1 class="mb-4">Compras </h1>
+    <div class="alert alert-danger d-none" role="alert" id="alert">
+        A simple danger alert—check it out!
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-cart-plus"></i> NUEVA COMPRA
+                </div>
+                <div class="card-body">
+                    <form action="/transacciones/compras/agregar" method="POST" id="compra_form">
+                        <label>Datos Proveedor </label>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <div class="form-row">
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control compra_input" id="id_proveedor"
+                                            name="rtn_proveedor" placeholder="Código del Proveedor" maxlength="14"
+                                            autofocus>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" id="btn_buscar_proveedor" class="btn btn-primary">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" name="nombre_proveedor" placeholder="Proveedor"
+                                    id="nombre_proveedor" disabled>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" id="cel_pro" placeholder="Celular" disabled>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <div class="col-lg-4 float-right">
+                                    <a href="#newProveedorFromCompras" id="btn-new-proveedor"
+                                        class="btn btn-success float-right" data-toggle="modal">
+                                        <i class="fas fa-address-card"></i> Nuevo Proveedor
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="id_compra" name="id_compra" maxlength="19"
+                                    placeholder="No. Factura" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="cai" name="cai_proveedor" maxlength="37"
+                                    placeholder="CAI" required>
+                                <div id="msg-cai-valid" class="valid-feedback"></div>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <div class="col-lg-4 float-right">
+                                    <button type="button" id="btn-verificar-compra" class="btn btn-danger float-right"
+                                        data-toggle="modal">
+                                        <i class="fas fa-check"></i> Verificar Validez
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <label>Fecha de Compra: </label>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="date" class="form-control" name="fecha">
+
+                            </div>
+
+                        </div>
+                        <label>Procesada por: </label>
+                        <div class="form-row">
+
+                            {{!--- Codigo Empleado ¡¡¡¡Temporal!!!! --}}
+
+                            <input type="text" class="form-control" name="id_empleado" placeholder="Codigo"
+                                value="{{user.ID_EMPLEADO}}" hidden>
+
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" placeholder="Nombre Empleado"
+                                    value="{{user.NOMBRE}} {{user.APELLIDO}}" disabled>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Artículos</label>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group col-md-4">
+                                    <div class="form-row">
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control compra_input" name="id-producto"
+                                                placeholder="Código del Artículo" id="id_producto">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" id="btn_buscar_producto" class="btn btn-primary">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <input type="text" class="form-control" name="descripcion"
+                                        placeholder="Descripción Artículo" id="descripcion" disabled>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control compra_input" id="cantidad_compra"
+                                                min="1" onkeydown="if(event.key==='.'){event.preventDefault();}"
+                                                placeholder="Cantidad">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control compra_input" id="precio_compra"
+                                                min="0" step="0.01" placeholder="Precio Compra">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- Boton Save -->
+                        <div class="text-right">
+                            <button type="button" id="btn-agregar" class="btn btn-success">
+                                <i class="far fa-plus-square"></i> Agregar Producto
+                            </button>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-file-invoice-dollar"></i> Procesar
+                            </button>
+
+                            <button type="button" id="{{anularCompra.ID}}" class="btn btn-warning button anul-ultima-compra">
+                                <i class="fas fa-ban"></i> Anular Reciente
+                            </button>
+                        </div>
+
+                        {{!-- Tablas ---}}
+                        <div class="col-md-12 mt-5">
+                            <table class="table table-striped" id="table-compra">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Cant.</th>
+                                        <th scope="col">Precio Compra</th>
+                                        <th scope="col">Subtotal</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </form>
+
+                    <div class="form-group col-md-2 float-right">
+                        <label> Subtotal</label>
+                        <input type="text" id="st-compra" class="form-control" placeholder="L. 0.00" disabled>
+                        <label class="mt-2"> ISV</label>
+                        <input type="text" id="isv" class="form-control" placeholder="L. 0.00" disabled>
+                        <label class="mt-2"> Total </label>
+                        <input type="text" id="total" class="form-control" placeholder="L. 0.00" disabled>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Modales --}}
+{{!-- Agregar Proveedor --}}
+{{> transacciones/nuevo-proveedor }}
+
+{{!--- Scripts ---}}
+
+<script src="/js/compras/comprar.js"></script>
+
+{{!-- Scripts Proveedores --}}
+<script src="/js/compras/nuevoProveedor.js"></script>

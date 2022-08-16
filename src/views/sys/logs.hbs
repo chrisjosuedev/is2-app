@@ -1,0 +1,54 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Bitácora </li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Vista de Bitácora </h1>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header font-weight-bold">
+                <i class="fas fa-list"></i> Logs
+            </div>
+            <div class="card-body">
+
+                <table class="table table-striped" id="table-consultas-logs">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Accion</th>
+                            <th scope="col">Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each logs}}
+                        <tr>
+                            <td>
+                                {{ID_LOGS}}
+                            </td>
+                            <td>
+                                {{format FECHA}} {{hourFormat FECHA}}
+                            </td>
+                            <td>
+                                {{USERNAME}}
+                            </td>
+                            <td>
+                                {{ACCION}}
+                            </td>
+                            <td>
+                                {{TIPO}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-consultas-logs.js"></script>

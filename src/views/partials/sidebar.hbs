@@ -1,0 +1,250 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+    <div class="sidebar-brand-icon">
+      <box-icon name='expand-horizontal' class="mr-2" type='solid' color='#fffafa'></box-icon>
+    </div>
+    <div class="sidebar-brand-text">IS2 Solutions</div>
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item active">
+    <a class="nav-link" href="/dashboard">
+      <i class="fas fa-home"></i>
+      <span>Dashboard</span></a>
+  </li>
+
+
+
+  <div class="produccion">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Producción
+    </div>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+        aria-controls="collapseTwo">
+        <i class="fas fa-tag"></i>
+        <span>Artículos</span>
+      </a>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="/articulos">Inventario</a>
+          <a class="collapse-item" href="/articulos/tipos">Tipo de Artículo</a>
+          <a class="collapse-item" href="/articulos/marcas">Marcas</a>
+        </div>
+      </div>
+
+    </li>
+  </div>
+
+
+
+
+  <div class="proveedores">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Proveedores
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+      <a class="nav-link" href="/proveedores">
+        <i class="fas fa-archive"></i>
+        <span>Proveedores</span></a>
+    </li>
+  </div>
+
+
+
+
+
+  <div class="personas">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+      CLIENTES Y EMPLEADOS
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+        aria-controls="collapsePages">
+        <i class="fas fa-users"></i>
+        <span>Personas</span>
+      </a>
+      <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="/persona/empleados">Empleados</a>
+          <a class="collapse-item" href="/persona/clientes">Clientes</a>
+        </div>
+      </div>
+    </li>
+
+  </div>
+
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    TRANSACIONES
+  </div>
+
+  <!-- Nav Item - Charts -->
+  <li class="nav-item">
+    <div class="facturacion">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFacturas" aria-expanded="true"
+        aria-controls="collapsePages">
+        <i class="fas fa-dollar-sign"></i>
+        <span>Facturacion</span>
+      </a>
+      <div id="collapseFacturas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" id="ventas" href="/transacciones/facturas/new">Ventas</a>
+          <a class="collapse-item" id="compras" href="/transacciones/compras/new">Compras</a>
+          <a class="collapse-item" id="devoluciones" href="/transacciones/devoluciones/nuevo">Devoluciones</a>
+          <a class="collapse-item" id="arqueo" href="/transacciones/arqueos/nuevo">Arqueo</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="analiticas">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnaliticas"
+        aria-expanded="true" aria-controls="collapsePages">
+        <i class="fas fa-chart-bar"></i>
+        <span>Analíticas</span>
+      </a>
+      <div id="collapseAnaliticas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="/analiticas/ventas">Ventas</a>
+          <a class="collapse-item" href="/analiticas/compras">Compras</a>
+        </div>
+      </div>
+    </div>
+
+
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsultas" aria-expanded="true"
+      aria-controls="collapsePages">
+      <i class="fas fa-search"></i>
+      <span>Consultas</span>
+    </a>
+    <div id="collapseConsultas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" id="con-ventas" href="/consultas/ventas">Ventas</a>
+        <a class="collapse-item" id="con-compras" href="/consultas/compras">Compras</a>
+        <a class="collapse-item" id="con-tickets" href="/consultas/tickets">Tickets</a>
+        <a class="collapse-item" id="con-arqueo" href="/consultas/arqueos">Arqueos</a>
+        <a class="collapse-item" id="con-devoluciones" href="/consultas/devoluciones">Devoluciones</a>
+      </div>
+    </div>
+
+    <!-- Nav Item - Charts -->
+
+  </li>
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    CONFIGURACION
+  </div>
+
+  <!-- Nav Item - Charts -->
+  <li class="nav-item">
+    <a class="nav-link" href="/sys/tickets">
+      <i class="fas fa-ticket-alt"></i>
+      <span>Mis Tickets</span></a>
+  </li>
+  <div class="config">
+    <li class="nav-item">
+      <a class="nav-link" href="/sys/logs">
+        <i class="fas fa-history"></i>
+        <span>Bitácora</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/config/usuarios">
+        <i class="fas fa-desktop"></i>
+        <span>Usuarios</span></a>
+    </li>
+  </div>
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+  <div class="sistema">
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSys" aria-expanded="true"
+        aria-controls="collapsePages">
+        <i class="fas fa-wrench"></i>
+        <span>Sistema</span>
+      </a>
+      <div id="collapseSys" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="/sys/mi-empresa">Empresa</a>
+          <a class="collapse-item" href="/sys/resoluciones">Resoluciones</a>
+        </div>
+      </div>
+
+
+    </li>
+  </div>
+
+
+
+
+  <!-- Sidebar Toggler (Sidebar) -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+  </div>
+
+</ul>
+
+
+<script>
+  const tipoPrivilegio = `{{user.ID_ROL}}`
+  if (tipoPrivilegio === '2') {
+    $(".sistema").remove()
+    $(".config").remove()
+    $(".personas").remove()
+    $("#ventas").remove()
+    $("#devoluciones").remove()
+    $("#arqueo").remove()
+    $("#con-arqueo").remove()
+    $("#con-devoluciones").remove()
+  } else if (tipoPrivilegio === '3') {
+    $(".sistema").remove()
+    $(".produccion").remove()
+    $(".analiticas").remove()
+    $(".proveedores").remove()
+    $(".config").remove()
+    $(".personas").remove()
+    $("#compras").remove()
+    $("#con-compras").remove()
+    $("#con-arqueo").remove()
+    $("#con-arqueo").remove()
+  } else if (tipoPrivilegio === '4') {
+    $(".produccion").remove()
+    $(".facturacion").remove()
+    $("#con-arqueo").remove()
+    $(".config").remove()
+  } else if (tipoPrivilegio === '5') {
+    $(".produccion").remove()
+    $(".config").remove()
+    $(".personas").remove()
+    $(".facturacion").remove()
+    $(".proveedores").remove()
+  }
+</script>

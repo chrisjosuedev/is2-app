@@ -1,0 +1,59 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> General </li>
+    </ol>
+  </nav>
+  <h1 class="mb-4"> Consulta de Devoluciones </h1>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header font-weight-bold">
+        <i class="fas fa-list"></i> Lista General de Devoluciones
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" id="table-consultas-devoluciones">
+          <thead>
+            <tr>
+              <th scope="col">N° Devolucion</th>
+              <th scope="col">N° Factura</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Tipo</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each devolucion}}
+            <tr>
+              <td>
+                {{ID_DEVOLUCION}}
+              </td>
+              <td>
+                {{ID_FAC}}
+              </td>
+              <td>
+                {{format FECHA}} {{hourFormat FECHA}}
+              </td>
+              <td>
+                {{#if TIPO}}
+                  TOTAL
+                {{else}}
+                  PARCIAL
+                {{/if}}
+              </td>
+              <td class="text-right">
+                <a href="/consultas/devoluciones/detalle/{{ID_DEVOLUCION}}" class="btn btn-secondary">
+                  <i class="fas fa-eye"></i>
+                </a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-consultas-devoluciones.js"></script>

@@ -1,0 +1,37 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Mi Perfil</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class=" image d-flex flex-column justify-content-center align-items-center">
+            {{#if user.SEXO}}
+            <img src="https://api.multiavatar.com/e6337a75a82abedf68.png" height="100" width="100" />
+            {{else}}
+            <img src="https://api.multiavatar.com/f3b0d3e45b0a8cfd63.png" height="100" width="100" />
+            {{/if}}
+
+            <span class="name mt-3 font-weight-bold"> {{user.NOMBRE}} {{user.APELLIDO}} </span>
+            <span class="idd">{{ user.USERNAME }}</span>
+
+            <span class="idd">{{ user.EMAIL_USER }}</span>
+
+            <span class="idd"> {{user.DESCRIPCION_CATEGORIA}} </span>
+
+            <span class="idd"> Rol: {{ user.ROL }}</span>
+
+            <div class=" d-flex mt-2">
+                <a href="/config/mi-perfil/edit/{{user.USERNAME}}" class="btn btn-outline-danger mt-2"> Cambiar
+                    Contraseña </a>
+            </div>
+
+            <div class=" px-2 rounded mt-4 date "> <span class="join">Miembro desde el {{format
+                    user.FECHA_CONTRATACION}}</span> </div>
+        </div>
+    </div>
+</div>

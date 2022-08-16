@@ -1,0 +1,68 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> General </li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Resolucion de Tickets </h1>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header font-weight-bold">
+                <i class="fas fa-list"></i> Lista General de Tickets
+            </div>
+            <div class="card-body">
+
+                <table class="table table-striped" id="table-consultas-tickets">
+                    <thead>
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Asunto</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each tickets}}
+                        <tr>
+                            <td>
+                                {{ID_TICKETS}}
+                            </td>
+                            <td>
+                                {{format FECHA}}
+                            </td>
+                            <td>
+                                {{hourFormat FECHA}}
+                            </td>
+                            <td>
+                                {{ASUNTO}}
+                            </td>
+                            <td>
+                                {{USERNAME}}
+                            </td>
+                            <td>
+                                {{#if RESOLUCION}}
+                                RESUELTO
+                                {{else}}
+                                SIN RESOLVER
+                                {{/if}}
+                            </td>
+                            <td class="text-right">
+                                <a href="/consultas/tickets/edit/{{ID_TICKETS}}" class="btn btn-secondary">
+                                    <i class="fas fa-align-left"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-consultas-tickets.js"></script>

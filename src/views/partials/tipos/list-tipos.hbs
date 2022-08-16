@@ -1,0 +1,41 @@
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-secondary">Listado de Tipos</h6>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTipos" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipos</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipos</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {{#each tipos}}
+                <tr>
+                    <td> {{ID_TIPOARTICULO}} </td>
+                    <td> {{NOMBRE_TIPOARTICULO}} </td>
+                    <td class="text-center">
+                        <button class="btn btn-primary editTipos"
+                            data-toggle="modal" data-target="#editTipos"
+                            data-tipos="{{ID_TIPOARTICULO}}">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                        <button id="{{ID_TIPOARTICULO}}" class="btn btn-danger del-item delete-tipos">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

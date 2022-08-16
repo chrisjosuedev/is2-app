@@ -1,0 +1,55 @@
+<div class="modal fade" id="editItem" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Articulo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post" id="edit-art" name="edit-art">
+          <label> Datos Generales </label>
+          <div class="form-group">
+            <input type="text" class="form-control" name="descripcion" placeholder="Descripción del artículo"
+              id="descripcion-edit" maxlength="50" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="marca"> Marca </label>
+              <select id="marca-edit" name="id_marca" class="custom-select" required>
+                {{#each marca}}
+                <option value="{{ID_MARCA}}"> {{NOMBRE_MARCA}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="linea"> Tipo de Articulo </label>
+              <select id="linea-edit" name="id_tipoarticulo" class="custom-select" required>
+                {{#each tipo_articulos}}
+                <option value="{{ID_TIPOARTICULO}}"> {{NOMBRE_TIPOARTICULO}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="precio"> Precio de Venta </label>
+              <input id="precio-edit" type="number" min="0" step="0.01" class="form-control" name="precio_unit"
+                placeholder="Precio" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="descuento"> Descuento (%) </label>
+              <input id="descuento-edit" type="number" min="0" max="100" step="0.01" class="form-control" name="descuento" value="0.00"
+                placeholder="Descuento" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-4 float-right">
+            <i class="fas fa-save"></i> Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

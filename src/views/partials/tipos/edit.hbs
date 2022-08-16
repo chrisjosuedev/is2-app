@@ -1,0 +1,30 @@
+<div class="modal fade" id="editTipos" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Tipo de Articulo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" id="edit-tipos" name="edit-tipos">
+
+                    <label> Datos de Tipo de Articulo </label>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <input type="text" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                class="form-control to-mayus" id="nombre_tipoarticulo" name="nombre_tipoarticulo"
+                                placeholder="Nuevo Tipo de Artículo" autofocus maxlength="15" required>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mt-4 float-right">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

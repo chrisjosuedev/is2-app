@@ -1,0 +1,100 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+      <li class="breadcrumb-item"><a href="/consultas/ventas">General</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Detalle de Venta</li>
+    </ol>
+  </nav>
+  <h1 class="mb-4"> Detalle de la Venta </h1>
+
+  <div class="col-md-12">
+
+    <div class="card mb-2">
+      <div class="card-header font-weight-bold">
+        <i class="fas fa-list"></i> General
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="form-group col-md-2">
+            <p> <strong> N° Factura: </strong> </p>
+            <h5> {{facturaGeneral.ID_FAC}} </h5>
+          </div>
+
+          <div class="form-group col-md-4">
+            <p> <strong>Cliente:</strong> </p>
+            <h5> {{facturaGeneral.Cliente}} </h5>
+          </div>
+          <div class="form-group col-md-4">
+            <p> <strong>Atendió:</strong> </p>
+            <h5> {{facturaGeneral.Empleado}} </h5>
+          </div>
+          <div class="form-group col-md-4">
+            <p> <strong>Fecha:</strong> </p>
+            <h5> {{format facturaGeneral.FECHA}} <br>
+              {{hourFormat facturaGeneral.FECHA}} </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="card mb-2">
+      <div class="card-header font-weight-bold">
+        <i class="fas fa-list"></i> Lista Detalle
+      </div>
+      <div class="card-body">
+
+        <table class="table table-striped" id="detalle-venta">
+          <thead>
+            <tr>
+              <th scope="col">ID Producto</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio Unit.</th>
+              <th scope="col"> Subtotal </th>
+              <th scope="col"> Desc. </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each facturaDetails}}
+            <tr>
+              <td>
+                {{ID_ARTICULO}}
+              </td>
+              <td>
+                {{DESCRIPCION}}
+              </td>
+              <td>
+                {{CANTIDAD}}
+              </td>
+              <td>
+                L. {{PRECIO_UNIT}}
+              </td>
+              <td> L. {{SUBTOTAL}} </td>
+              <td>
+                {{DISC}}
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+
+        <div class="form-group col-md-2 float-right">
+          <label> Subtotal</label>
+          <input type="text" id="st-venta" class="form-control" placeholder="Subtotal" disabled value="">
+          <label class="mt-2"> Descuentos</label>
+          <input type="text" id="desc-st" class="form-control " placeholder="L. 0.00" value="" disabled>
+          <label class="mt-2"> ISV </label>
+          <input type="text" id="isv" class="form-control " placeholder="ISV" disabled value="">
+          <label class="mt-2"> Total </label>
+          <input type="text" id="total" class="form-control" placeholder="Total" disabled value="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/consultas/ventas-detalle.js"></script>
+

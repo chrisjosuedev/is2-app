@@ -1,0 +1,35 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Usuarios </h1>
+
+    <div class="d-grid gap-2 d-md-block">
+        {{!-- Nueva Usuarios Modal --}}
+        <a href="#newUsuario" class="btn btn-success" data-toggle="modal">
+            <i class="fas fa-plus-square mr-2"></i> Nuevo
+        </a>
+    </div>
+
+
+    <div class="container-fluid mt-5">
+        <div class="card shadow mb-4">
+            {{> usuarios/list-usuarios }}
+        </div>
+    </div>
+</div>
+
+
+{{!-- Modales --}}
+{{!-- Agregar Articulo --}}
+{{> usuarios/add }}
+{{> usuarios/edit }}
+
+{{!-- Scripts SRC --}}
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-usuarios.js"></script>
+<script src="/js/config/usuarios.js"></script>

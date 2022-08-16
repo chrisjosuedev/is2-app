@@ -1,0 +1,51 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Proveedores</li>
+        </ol>
+    </nav>
+    <div class="col-md-12">
+        <h1 class="mb-4"> Proveedores </h1>
+
+        <div class="d-grid gap-2 d-md-block">
+            <div class="d-none" id="proContainer">
+                {{!-- Nueva Proveedores Modal --}}
+                <a href="#newProveedor" class="btn btn-success diseño" data-toggle="modal">
+                    <i class="fas fa-plus-square mr-2"></i> Nuevo
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="container-fluid mt-5">
+            <div class="card shadow mb-4">
+                {{> proveedores/list-proveedores }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- Modales --}}
+{{!-- Agregar Proveedor --}}
+{{> proveedores/add }}
+{{> proveedores/edit }}
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-proveedores.js"></script>
+{{!-- Scripts SRC --}}
+<script src="/js/proveedores/proveedores.js"></script>
+
+
+<script>
+    var tipoPrivilegio = `{{user.ID_ROL}}`
+    if (tipoPrivilegio === '4') {
+        $('.diseño').remove()
+    }
+    else {
+        $('#proContainer').removeClass('d-none')
+        $('.diseño').removeClass('d-none')
+    }
+</script>

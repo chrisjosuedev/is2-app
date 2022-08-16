@@ -1,0 +1,41 @@
+<div class="container">
+
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Clientes </li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Clientes </h1>
+
+    <div class="d-grid gap-2 d-md-block">
+        {{!-- Nuevo Cliente Modal --}}
+        <a href="#newCliente" class="btn btn-success" data-toggle="modal">
+            <i class="fas fa-plus-square mr-2"></i> Nuevo
+        </a>
+    </div>
+
+
+    <div class="container-fluid mt-5">
+        <div class="card shadow mb-4">
+            {{> persona/clientes/list-clientes }}
+        </div>
+    </div>
+</div>
+
+
+{{!-- Modales --}}
+{{!-- Agregar Articulo --}}
+{{> persona/clientes/add }}
+{{> persona/clientes/edit }}
+
+{{!-- Scripts SRC --}}
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-clientes.js"></script>
+
+<script src="/js/persona/clientes.js"></script>
+
+{{!-- Script de Select de Ciudad Dinamico --}}
+<script src="/js/ciudad.js"></script>
+

@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> Analiticas de Compras </li>
+    </ol>
+  </nav>
+  <h1 class="mb-4">Estadísticas de Compras</h1>
+
+  <div class="card shadow mb-4 mt-2">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-secondary">Gráficos analiticas del total de compras</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-header font-weight-bold">
+              Compras diarias (Últimos 15 días)
+            </div>
+            <div class="card-body">
+              <canvas id="myChartComprasDiarias" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header font-weight-bold">
+              Compras por mes
+            </div>
+            <div class="card-body">
+              <canvas id="myChartComprasMensuales" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header font-weight-bold">
+              Artículos más comprados
+            </div>
+            <div class="card-body">
+              <canvas id="myChartMasComprados" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header font-weight-bold">
+              Mayores compras a proveedores <br> (Cantidades en Lempiras)
+            </div>
+            <div class="card-body">
+              <canvas id="myChartComprasProveedores" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Page level plugins -->
+<script src="/js/analiticas/compras.js"></script>

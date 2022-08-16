@@ -1,0 +1,50 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Articulos</li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Artículos </h1>
+
+    <div class="d-grid gap-2 d-md-block">
+        <div class="d-none" id="newContainer">
+            {{!-- Nuevo Articulo Modal --}}
+            <a href="#newArticulo" class="btn btn-success diseño" id="#addArticulo addArt" data-toggle="modal">
+                <i class="fas fa-plus-square mr-2"></i> Nuevo
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid mt-5">
+        <div class="card shadow mb-4">
+            {{> items/list-items }}
+        </div>
+    </div>
+</div>
+
+
+{{!-- Modales --}}
+{{!-- Agregar Articulo --}}
+{{> items/add }}
+{{> items/edit }}
+{{!-- Scripts SRC --}}
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-items.js"></script>
+
+<script src="/js/items/items.js"></script>
+
+
+<script>
+    var tipoPrivilegio = `{{user.ID_ROL}}`
+    if (tipoPrivilegio === '4') {
+        $('.diseño').remove()
+    }
+    else {
+        $('#newContainer').removeClass('d-none')
+    }
+
+</script>

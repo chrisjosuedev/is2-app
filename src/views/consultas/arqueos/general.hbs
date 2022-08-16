@@ -1,0 +1,86 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> General </li>
+    </ol>
+  </nav>
+  <h1 class="mb-4"> Arqueos de Caja </h1>
+  <div class="alert alert-warning d-none" role="alert" id="alert">
+    A simple danger alert—check it out!
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header font-weight-bold">
+        <i class="fas fa-list"></i> Lista General de Cierres de Caja Diarios
+      </div>
+      <div class="card-body">
+
+        <div class="form-row justify-content-end d-none" id="rangeDate">
+          <div class="form-group col-md-4">
+            <label for="fecha-in"> De </label>
+            <input type="date" class="form-control" placeholder="De" id="fecha-in">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="fecha-out"> Hasta </label>
+            <input type="date" class="form-control" id="fecha-out">
+          </div>
+        </div>
+
+
+
+        <table class="table table-striped" id="table-consultas-arqueos">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Registrado</th>
+              <th scope="col">Efectivo Caja</th>
+              <th scope="col">Sobrante</th>
+              <th scope="col">Faltante</th>
+              <th scope="col">Estatus</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each arqueo}}
+            <tr>
+              <td>
+                {{format FECHA}}
+              </td>
+              <td>
+                {{SALDO_REGISTRADO}}
+              </td>
+              <td>
+                {{SALDO_CAJA}}
+              </td>
+              <td class="saldo_nivel">
+                <strong> {{SOBRANTE}} </strong>
+              </td>
+              <td class="saldo_nivel">
+                <strong> {{FALTANTE}} </strong>
+              </td>
+              <td>
+                {{#if REVISADO}}
+                  REVISADO
+                {{else}}
+                  NO REVISADO
+                {{/if}}
+              </td>
+              <td class="text-right">
+                <a href="/consultas/arqueos/edit/{{ID_ARQUEOS}}" class="btn btn-secondary">
+                  <i class="fas fa-align-left"></i>
+                </a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-consultas-arqueos.js"></script>
+{{!-- Scripts SRC --}}
+<script src="/js/consultas/arqueos.js"></script>

@@ -1,0 +1,46 @@
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-secondary">Listado de Proveedores</h6>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+
+        <table class="table table-bordered" id="dataProveedores" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>RTN</th>
+                    <th>Proveedor</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th class="diseño d-none"></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>RTN</th>
+                    <th>Proveedor</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th class="diseño d-none"></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {{#each proveedores}}
+                <tr>
+                    <td> {{RTN_PROVEEDOR}} </td>
+                    <td> {{NOMBRE_PROVEEDOR}} </td>
+                    <td> {{EMAIL_PROVEEDOR}} </td>
+                    <td> {{CEL_PROVEEDOR}} </td>
+                    <td class="text-center d-none diseño">
+                        <button class="btn btn-primary editProveedor mb-2"
+                            data-toggle="modal" data-target="#editProveedor"
+                            data-proveedor="{{RTN_PROVEEDOR}}">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</div>

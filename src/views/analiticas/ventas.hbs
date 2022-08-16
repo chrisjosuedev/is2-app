@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> Analiticas de Venta </li>
+    </ol>
+  </nav>
+  <h1 class="mb-4">Estadísticas de Ventas</h1>
+
+  <div class="card shadow mb-4 mt-2">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-secondary">Gráficos analiticas del total de ventas</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-header font-weight-bold">
+              Ritmo de Ventas Diarias
+            </div>
+            <div class="card-body">
+              <canvas id="myChartVentasDiarias" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header font-weight-bold">
+              Facturacion por mes
+            </div>
+            <div class="card-body">
+              <canvas id="myChartVentasMensuales" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header font-weight-bold">
+              Artículos más vendidos
+            </div>
+            <div class="card-body">
+              <canvas id="myChartArticulos" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header font-weight-bold">
+              Clientes con mayores compras <br> (Cantidades en Lempiras)
+            </div>
+            <div class="card-body">
+              <canvas id="myChartVentasClientes" width="400" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Page level plugins -->
+<script src="/js/analiticas/ventas.js"></script>

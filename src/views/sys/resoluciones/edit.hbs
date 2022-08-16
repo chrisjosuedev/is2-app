@@ -1,0 +1,73 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> <a href="/sys/resoluciones/">Mi Resolucion</a> </li>
+            <li class="breadcrumb-item active" aria-current="page">Editar resolucion</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-check-circle"></i> EDITAR RESOLUCION
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="col-md-12 alert alert-warning d-none" role="alert" id="alert">
+                            A simple danger alert—check it out!
+                        </div>
+                    </div>
+                    <form action="/sys/resoluciones/edit/{{dataResolucion.ID_RESOLUCION}}" method="post" class="resolucion">
+                        <label>Resolucion CAI No.</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control to-mayus" id="cai" name="cai" maxlength="37" onkeyup="javascript:this.value=this.value.toUpperCase();"  value="{{dataResolucion.CAI}}" required>
+                            </div>
+                        </div>
+                        <label>No. Serie</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="serie" name="serie" value="{{dataResolucion.SERIE}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>No. Inicial</label>
+                                <input type="text" class="form-control" id="num_inicial" name="num_inicial" value="{{dataResolucion.NUM_INICIAL}}" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>No. Final</label>
+                                <input type="text" class="form-control" id="num_final" name="num_final" value="{{dataResolucion.NUM_FINAL}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>Fecha limite</label>
+                                <input type="date" id="fecha_limite" name="fecha_limite" class="form-control" value="{{dataResolucion.FECHA_LIMITE}}" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Alertar días antes</label>
+                                <input type="number" min="1" name="notificar" id="notificar" class="form-control" value="{{dataResolucion.NOTIFICAR}}"
+                                    required>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="procesar" class="btn btn-success float-right mb-4 mr-2">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Scripts SRC --}}
+<script src="/js/empresa/resoluciones.js"></script>

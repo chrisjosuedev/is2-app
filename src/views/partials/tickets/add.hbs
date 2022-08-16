@@ -1,0 +1,55 @@
+<div id="newTicket" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">AGREGAR NUEVO TICKET</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="/sys/tickets" method="post" id="tickets_form" enctype="multipart/form-data">
+
+                    <label> Generar nuevo Ticket </label>
+                    <div class="form-group">
+                        <label for="sel-tipo"> Área </label>
+                        <select id="sel-tipo" name="id_area_laboral" class="custom-select">
+                            {{#each areaLaboral}}
+                            <option value="{{ID_CATEGORIA}}"> {{DESCRIPCION_CATEGORIA}} </option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel-tipo"> Asunto </label>
+                        <input type="text" class="form-control" name="asunto" placeholder="Asunto" autofocus
+                            maxlength="30" required>
+                        <div id="msg-valid" class="valid-feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel-tipo"> Descripción </label>
+                        <textarea class="form-control" name="descripcion" id="descripcion" rows="2" maxlength="150"
+                            required placeholder="Descripcion"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+
+                                <input type="file" class="custom-file-input" id="inputGroupFile02"
+                                    accept=".png, .jpg, .jpeg" name="img_adjunta">
+                                <label class="custom-file-label" for="inputGroupFile02"
+                                    aria-describedby="inputGroupFileAddon02">Seleccionar Archivo</label>
+                            </div>
+
+                        </div>
+                        <small class="form-text text-muted">
+                            (*) Adjuntar la imagen es opcional. (Max. 1 MB, Formatos Soportados: .jpg | .jpeg | .png)
+                        </small>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mt-4 float-right">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Ajustes</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-sliders-h mr-2"></i> AJUSTES
+                </div>
+                <div class="card-body">
+                    <form action="/ajustes/{{dataAjustes.ID}}" method="post">
+                        <label> <b> Horario para Arqueo de Caja </b></label>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="time1"> Hora Inicio:</label>
+                                    <input type="time" id="time1" class="form-control" value="{{dataAjustes.HORA_INIT_CAJA}}" name="hora_init_caja" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="time1"> Hora Limite:</label>
+                                    <input type="time" id="time1" class="form-control" value="{{dataAjustes.HORA_FINAL_CAJA}}" name="hora_final_caja" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <label> <b> Definir tiempo Backup de Base de Datos </b></label>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="min"> Cada: (Hora Diaria)</label>
+                                    <label for="time1"> Hora Limite:</label>
+                                    <input type="time" id="time1" class="form-control" value="{{dataAjustes.MIN_DB}}" name="min_db" required>
+                                    <small id="dbHelpBlock" class="form-text text-muted">
+                                        La ruta destino esta definida en C:\usersmaquina\maquinadelusuario\.is2-solutions\db
+                                    </small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class=" d-flex mt-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save"></i> Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

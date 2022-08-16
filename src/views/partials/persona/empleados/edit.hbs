@@ -1,0 +1,94 @@
+<div class="modal fade" id="editEmpleado" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Empleado </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" id="edit-empleado" name="edit-empleado">
+
+                    <label> Datos Generales </label>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="id_persona" name="id_persona" placeholder="Identidad" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <input type="text" id="nombre_persona" class="form-control to-mayus" name="nombre_persona" placeholder="Nombre" maxlength="50" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <input type="text" class="form-control to-mayus" id="apellido_persona" name="apellido_persona" placeholder="Apellidos" maxlength="50"
+                            onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-lg-6 mt-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="male" type="radio" name="sexo" value="0">
+                                <label class="form-check-label" for="male"> Masculino </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="female" type="radio" name="sexo" value="1">
+                                <label class="form-check-label" for="female"> Femenino </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" required
+                                maxlength="8" pattern="[0-9]{8}">
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-6">
+                            <label for="fecha_contratacion"> Fecha de contratación </label>
+                            <input type="date" id="fecha_contratacion" name="fecha_contratacion" class="form-control" required>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="sel-laboral"> Puesto laboral </label>
+                            <select id="sel-laboral" name="id_categoria" class="custom-select" required>
+                                {{#each categoria_laboral}}
+                                <option value="{{ID_CATEGORIA}}"> {{DESCRIPCION_CATEGORIA}} </option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <label> Datos de Residencia </label>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <textarea class="form-control" name="direccion_residencia" id="direccion_residencia" cols="30" rows="2" placeholder="Direccion de Residencia" maxlength="200" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6" id="tipo">
+                            <select id="select-depto" name="id_depto" class="custom-select depto">
+                                {{#each departamentos}}
+                                <option value="{{ID_DEPTO}}"> {{NOMBRE_DEPTO}} </option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <select id="select-ciudad" name="id_ciudad" class="custom-select ciudad">
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-4 float-right">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

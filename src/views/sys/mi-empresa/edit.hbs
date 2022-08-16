@@ -1,0 +1,119 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> <a href="/sys/mi-empresa/">Mi Empresa</a> </li>
+            <li class="breadcrumb-item active" aria-current="page">Editar mi empresa</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <i class="fas fa-industry"></i> DATOS GENERALES DE LA EMPRESA
+                </div>
+                <div class="card-body">
+                    <form action="/sys/mi-empresa/edit/{{empresa.ID_EMPRESA}}" method="post" class="empresa" name="empresa">
+                        <label>R.T.N.</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="rtn_empresa" name="rtn_empresa" value="{{empresa.RTN_EMPRESA}}"
+                                    maxlength="14" required>
+                                <div id="msg-rtn-valid" class="valid-feedback"></div>
+                            </div>
+                        </div>
+                        <label>Razón Social</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="razon_social" name="razon_social" value="{{empresa.RAZON_SOCIAL}}"
+                                    maxlength="50" required>
+                            </div>
+                        </div>
+                        <label>R.T.N. Representante Legal</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="rtn_rep" maxlength="14" name="rtn_rep_legal" value="{{empresa.RTN_REP_LEGAL}}"
+                                    required>
+                                <div id="msg-reprtn-valid" class="valid-feedback"></div>
+                            </div>
+                        </div>
+                        <label>Nombre del Representante Legal</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="nombre_rep" name="rep_legal" maxlength="50" value="{{empresa.REP_LEGAL}}"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Email de la Empresa</label>
+                                <input type="email" name="email" class="form-control" id="email" maxlength="50" value="{{empresa.EMAIL}}"
+                                    required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Teléfono de la Empresa</label>
+                                <input type="text" name="celular" class="form-control" id="celular" maxlength="8" value="{{empresa.CELULAR}}"
+                                    pattern="[0-9]{8}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6" id="tipo">
+                                <label>Departamento </label>
+                                <select id="select-depto" name="id_depto" class="custom-select depto" required>
+                                    {{#each departamentos}}
+                                    <option value="{{ID_DEPTO}}"> {{NOMBRE_DEPTO}} </option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Ciudad </label>
+                                <select id="select-ciudad" name="id_ciudad" class="custom-select ciudad" required>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label>Direccion de la Empresa</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <textarea class="form-control" name="direccion_empresa" id="direccion_residencia"
+                                    cols="30" rows="4" maxlength="50">{{empresa.DIRECCION_EMPRESA}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 alert alert-warning d-none" role="alert" id="alert">
+                                A simple danger alert—check it out!
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>Inicio Periodo</label>
+                                <input type="date" id="fecha_in" name="inicio_periodo" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Fin del Periodo</label>
+                                <input type="date" name="fin_periodo" id="fecha_final" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="procesar" class="btn btn-success float-right mb-4 mr-2">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Scripts SRC --}}
+<script src="/js/empresa/empresa.js"></script>
+
+{{!-- Script de Select de Ciudad Dinamico --}}
+<script src="/js/ciudad.js"></script>

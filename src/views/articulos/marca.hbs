@@ -1,0 +1,37 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item"><a href="/articulos"> Articulos </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Marcas</li>
+        </ol>
+    </nav>
+
+
+    <h1 class="mb-4"> Marcas </h1>
+
+    <div class="d-grid gap-2 d-md-block">
+        {{!-- Nueva Marca Modal --}}
+        <a href="#newMarca" class="btn btn-success" data-toggle="modal">
+            <i class="fas fa-plus-square mr-2"></i> Nuevo
+        </a>
+    </div>
+
+
+    <div class="container-fluid col-lg-8 mx-auto mt-4">
+        <div class="card shadow mb-4">
+            {{> marca/list-marca }}
+        </div>
+    </div>
+</div>
+
+
+{{!-- Modales --}}
+{{!-- Agregar Marca --}}
+{{> marca/add }}
+{{> marca/edit }}
+
+{{!-- Level Custom --}}
+<script src="/js/datatables/data-marcas.js"></script>
+{{!-- Scripts SRC --}}
+<script src="/js/marca/marca.js"></script>

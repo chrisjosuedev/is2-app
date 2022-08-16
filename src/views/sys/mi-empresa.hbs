@@ -1,0 +1,114 @@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Mi Empresa</li>
+        </ol>
+    </nav>
+    <h1 class="mb-4"> Mi Empresa </h1>
+    <div class="row">
+        {{#each empresaData}}
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <i class="fas fa-industry"></i> DATOS GENERALES DE MI EMPRESA
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <a href="/sys/mi-empresa/edit/{{ID_EMPRESA}}" class="text-decoration-none text-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a id="{{ID_EMPRESA}}" class="text-decoration-none text-danger del-empresa" role="button">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+
+                    <label>R.T.N.</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <p> <strong> {{RTN_EMPRESA}} </strong></p>
+                        </div>
+                    </div>
+                    <label>Razón Social</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <p> <strong> {{RAZON_SOCIAL}} </strong></p>
+                        </div>
+                    </div>
+                    <label>R.T.N. Representante Legal</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <p> <strong> {{RTN_REP_LEGAL}} </strong></p>
+                        </div>
+                    </div>
+                    <label>Nombre del Representante Legal</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <p> <strong> {{REP_LEGAL}} </strong></p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Email de la Empresa</label>
+                            <p> <strong> {{EMAIL}} </strong></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Teléfono de la Empresa</label>
+                            <p> <strong> {{CELULAR}} </strong></p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6" id="tipo">
+                            <label>Departamento </label>
+                            <p> <strong> {{NOMBRE_DEPTO}} </strong></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Ciudad </label>
+                            <p> <strong> {{NOMBRE_CIUDAD}} </strong></p>
+                        </div>
+                    </div>
+
+                    <label>Direccion de la Empresa</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <p> <strong> {{DIRECCION_EMPRESA}} </strong></p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label>Inicio Periodo</label>
+                            <p> <strong> {{format INICIO_PERIODO}} </strong></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Fin del Periodo</label>
+                            <p> <strong> {{format FIN_PERIODO}} </strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {{else}}
+        <div class="col-md-8 mx-auto">
+            <div class="card card-body text-center">
+                <p> No hay ninguna Empresa Registrada. </p>
+                <a href="/sys/mi-empresa/agregar">
+                    <i class="fas fa-plus-circle"></i>
+                    Registrar mi Empresa </a>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
+
+<script src="/js/empresa/empresa.js"></script>

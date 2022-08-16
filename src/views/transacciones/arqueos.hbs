@@ -1,0 +1,152 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard"> <i class="fas fa-home"></i> </a></li>
+      <li class="breadcrumb-item active" aria-current="page">Arqueo Diario</li>
+    </ol>
+  </nav>
+  <div class="form-group">
+    <div class="col-md-12 alert alert-warning d-none" role="alert" id="alert">
+      A simple danger alert—check it out!
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header font-weight-bold">
+          <i class="fas fa-money-bill"></i> ARQUEO DIARIO
+        </div>
+        <div class="card-body">
+          <form action="/transacciones/arqueos/agregar" method="post" id="arqueo_form">
+            <label> <b> Empleado en Caja </b></label>
+            <div class="row">
+              {{!--- Codigo Empleado ¡¡¡¡Temporal!!!! --}}
+
+              <input type="text" class="form-control" name="id_empleado_realizo" placeholder="Codigo"
+                value="{{user.ID_EMPLEADO}}" hidden>
+
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" placeholder="Nombre Empleado"
+                  value="{{user.NOMBRE}} {{user.APELLIDO}}" disabled>
+
+              </div>
+            </div>
+
+            <label> <b> Acumulado </b></label>
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <label>Fecha</label>
+                <input type="date" id="fecha" name="fecha" class="form-control" value="{{dataVentas.Fecha}}" readonly
+                  onmousedown="return false;" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Saldo en Caja Registrado (Lps.)</label>
+                <input type="number" min="0" step="0.01" class="form-control" id="saldo" name="saldo_registrado"
+                  readonly onmousedown="return false;" value="{{totalBruto}}">
+              </div>
+            </div>
+
+            <label> <b> Contador </b></label>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>L. 500</label>
+                <input type="number" class="form-control amount" id="l500" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>L. 200</label>
+                <input type="number" class="form-control amount" id="l200" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>L. 100</label>
+                <input type="number" class="form-control amount" id="l100" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>L. 50</label>
+                <input type="number" class="form-control amount" id="l50" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>L. 20</label>
+                <input type="number" class="form-control amount" id="l20" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>L. 10</label>
+                <input type="number" class="form-control amount" id="l10" min="0" value="0" required>
+              </div>
+            </div>
+            <div class="form-row">
+
+              <div class="form-group col-md-2">
+                <label>L. 5</label>
+                <input type="number" class="form-control amount" id="l5" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>L. 2</label>
+                <input type="number" class="form-control amount" id="l2" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>L. 1</label>
+                <input type="number" class="form-control amount" id="l1" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>0.50 ¢</label>
+                <input type="number" class="form-control amount" id="c_50" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>0.20 ¢</label>
+                <input type="number" class="form-control amount" id="c_20" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>0.10 ¢</label>
+                <input type="number" class="form-control amount" id="c_10" min="0" value="0" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label>0.05 ¢</label>
+                <input type="number" class="form-control amount" id="c_05" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>0.02 ¢</label>
+                <input type="number" class="form-control amount" id="c_02" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label>0.01 ¢</label>
+                <input type="number" class="form-control amount" id="c_01" min="0" value="0" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label>Total en Efectivo. (Lps)</label>
+                <input type="number" class="form-control" id="total_efectivo" name="saldo_caja" readonly
+                  onmousedown="return false;" required>
+              </div>
+            </div>
+            <div class="form-row">
+
+            </div>
+
+
+            <button type="submit" id="procesar" class="btn btn-success float-right mb-4 mr-2">
+              <i class="fas fa-save"></i> Cerrar Diario
+            </button>
+
+            <button type="button" id="reset" class="btn btn-warning float-right mb-4 mr-2">
+              <i class="fas fa-minus-circle"></i> Todo a Cero
+            </button>
+
+            <button type="button" id="calcular" class="btn btn-primary float-right mb-4 mr-2">
+              <i class="fas fa-calculator">
+              </i> Calcular
+            </button>
+
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/arqueos/arqueo.js"></script>
