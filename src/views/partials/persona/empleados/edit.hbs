@@ -13,18 +13,22 @@
                     <label> Datos Generales </label>
                     <div class="form-group">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="id_persona" name="id_persona" placeholder="Identidad" disabled>
+                            <input type="text" class="form-control" id="id_persona" name="id_persona"
+                                placeholder="Identidad" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <input type="text" id="nombre_persona" class="form-control to-mayus" name="nombre_persona" placeholder="Nombre" maxlength="50" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                            <input type="text" id="nombre_persona" class="form-control to-mayus" name="nombre_persona"
+                                placeholder="Nombre" maxlength="50"
+                                onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <input type="text" class="form-control to-mayus" id="apellido_persona" name="apellido_persona" placeholder="Apellidos" maxlength="50"
-                            onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                            <input type="text" class="form-control to-mayus" id="apellido_persona"
+                                name="apellido_persona" placeholder="Apellidos" maxlength="50"
+                                onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -40,17 +44,18 @@
                             </div>
                         </div>
                         <div class="form-group col-lg-6">
-                            <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" required
-                                maxlength="8" pattern="[0-9]{8}">
+                            <input class="form-control phone" id="celular" type="tel" name="phone" required />
+                            <div class="msg-cel-valid valid-feedback"></div>
                         </div>
                     </div>
 
-                    
+
                     <div class="form-row">
-                        
+
                         <div class="form-group col-md-6">
                             <label for="fecha_contratacion"> Fecha de contratación </label>
-                            <input type="date" id="fecha_contratacion" name="fecha_contratacion" class="form-control" required>
+                            <input type="date" id="fecha_contratacion" name="fecha_contratacion" class="form-control"
+                                required>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -66,7 +71,9 @@
                     <label> Datos de Residencia </label>
                     <div class="form-group">
                         <div class="form-group">
-                            <textarea class="form-control" name="direccion_residencia" id="direccion_residencia" cols="30" rows="2" placeholder="Direccion de Residencia" maxlength="200" required></textarea>
+                            <textarea class="form-control" name="direccion_residencia" id="direccion_residencia"
+                                cols="30" rows="2" placeholder="Direccion de Residencia" maxlength="200"
+                                required></textarea>
                         </div>
                     </div>
 

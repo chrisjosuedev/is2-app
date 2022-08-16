@@ -11,20 +11,21 @@
                     <label> Datos Generales </label>
                     <div class="form-group">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="id_persona" placeholder="IDENTIDAD" id="id-empleado"
-                                maxlength="13" required autofocus>
-                            <div id="msg-valid" class="valid-feedback"></div>    
+                            <input type="text" class="form-control" name="id_persona" placeholder="IDENTIDAD"
+                                id="id-empleado" maxlength="13" required autofocus>
+                            <div id="msg-valid" class="valid-feedback"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <input type="text" class="form-control to-mayus" name="nombre_persona" placeholder="Nombre" onkeyup="javascript:this.value=this.value.toUpperCase();"
-                                maxlength="50" required>
+                            <input type="text" class="form-control to-mayus" name="nombre_persona" placeholder="Nombre"
+                                onkeyup="javascript:this.value=this.value.toUpperCase();" maxlength="50" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <input type="text" class="form-control  to-mayus" name="apellido_persona" placeholder="Apellidos" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                            <input type="text" class="form-control  to-mayus" name="apellido_persona"
+                                placeholder="Apellidos" onkeyup="javascript:this.value=this.value.toUpperCase();"
                                 maxlength="50" required>
                         </div>
                     </div>
@@ -32,7 +33,8 @@
 
                         <div class="form-group col-lg-6 mt-2">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="inlineRadio1" value="0" required>
+                                <input class="form-check-input" type="radio" name="sexo" id="inlineRadio1" value="0"
+                                    required>
                                 <label class="form-check-label" for="inlineRadio1"> Masculino </label>
                             </div>
                             <div class="form-check form-check-inline">
@@ -41,12 +43,12 @@
                             </div>
                         </div>
                         <div class="form-group col-lg-6">
-                            <input type="text" class="form-control" name="celular" placeholder="Celular" required
-                                maxlength="8" pattern="[0-9]{8}">
+                            <input class="form-control phone" id="phone" type="tel" name="phone" required />
+                            <div class="msg-cel-valid valid-feedback"></div>
                         </div>
                     </div>
 
-                    
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="fecha-con"> Fecha de contratación </label>
