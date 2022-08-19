@@ -1,4 +1,3 @@
-require("dotenv").config();
 const myConn = require("../db");
 const { saveLog } = require("../lib/logs");
 
