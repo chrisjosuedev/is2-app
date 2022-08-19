@@ -185,7 +185,7 @@ transaccionController.addNewCompra = async (req, res) => {
                 id: idCompra[0].ID,
                 id_articulo: id_articulo[i],
                 cantidad: parseInt(cantidad[i]),
-                precio_compra: parseInt(precio_compra[i]),
+                precio_compra: parseFloat(precio_compra[i]),
             });
         }
 
@@ -199,7 +199,9 @@ transaccionController.addNewCompra = async (req, res) => {
                     .filter((id) => id.id_articulo === id_articulo)
                     .map((id) => id.cantidad)
                     .reduce((c, value) => c + value),
-                precio_compra: newCompraDetails[0].precio_compra,
+                precio_compra: newCompraDetails
+                    .filter((id) => id.id_articulo === id_articulo)
+                    .map((id) => id.precio_compra)[0],
             };
         });
 
@@ -285,25 +287,27 @@ transaccionController.addNewFactura = async (req, res) => {
             });
         }
 
-        // const newProductFormat = [
-        //     ...new Set(newProductDetails.map((id) => id.id_articulo)),
-        // ].map((id_articulo) => {
-        //     return {
-        //         id_factura: newProductDetails[0].id_factura,
-        //         id_articulo,
-        //         cantidad: newProductDetails
-        //             .filter((id) => id.id_articulo === id_articulo)
-        //             .map((id) => id.cantidad)
-        //             .reduce((c, value) => c + value),
-        //         precio_unit: newProductDetails[0].precio_unit,
-        //         descuento: newProductDetails
-        //             .filter((id) => id.id_articulo === id_articulo)
-        //             .map((id) => id.descuento)
-        //             .reduce((c, value) => c + value),
-        //     };
-        // });
+        const newProductFormat = [
+            ...new Set(newProductDetails.map((id) => id.id_articulo)),
+        ].map((id_articulo) => {
+            return {
+                id_factura: newProductDetails[0].id_factura,
+                id_articulo,
+                cantidad: newProductDetails
+                    .filter((id) => id.id_articulo === id_articulo)
+                    .map((id) => id.cantidad)
+                    .reduce((c, value) => c + value),
+                precio_unit: newProductDetails
+                    .filter((id) => id.id_articulo === id_articulo)
+                    .map((id) => id.precio_unit)[0],
+                descuento: newProductDetails
+                    .filter((id) => id.id_articulo === id_articulo)
+                    .map((id) => id.descuento)
+                    .reduce((c, value) => c + value),
+            };
+        });
 
-        newProductDetails.forEach(async (item) => {
+        newProductFormat.forEach(async (item) => {
             await myConn.query("INSERT INTO factura_detalle set ?", [item]);
         });
 
@@ -648,13 +652,14 @@ transaccionController.agregarDevolucion = async (req, res) => {
                     .reduce((c, value) => c + value),
                 precio_unit: newDevolucionDetails
                     .filter((id) => id.id_articulo === id_articulo)
-                    .map((id) => id.precio_unit)
-                    .reduce((c, value) => c + value),
+                    .map((id) => id.precio_unit)[0],
                 descuento: newDevolucionDetails
                     .filter((id) => id.id_articulo === id_articulo)
                     .map((id) => id.descuento)
                     .reduce((c, value) => c + value),
-                obs: newDevolucionDetails[0].obs,
+                obs: newDevolucionDetails
+                    .filter((id) => id.id_articulo === id_articulo)
+                    .map((id) => id.obs)[0],
             };
         });
 
@@ -896,7 +901,7 @@ const createPdf = async (id, efectivo) => {
             doc.text(
                 `Descuento: L. ${totalDescuento[0].DESCUENTO_TOTAL}`,
                 { align: "right" },
-                doc.footer.y + 25
+                doc.footer.y + 28
             );
             doc.text(` `, { align: "right" });
             doc.text(

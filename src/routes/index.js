@@ -10,7 +10,7 @@ const generatePassword = require("generate-password");
 const { isLoggedIn, isLoggedInLogin, electronAccess } = require("../lib/auth");
 
 // Login
-router.get("/", /*electronAccess,*/ isLoggedInLogin, (req, res) => {
+router.get("/", electronAccess, isLoggedInLogin, (req, res) => {
     res.render("auth/signin");
 });
 
