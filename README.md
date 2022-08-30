@@ -1,8 +1,8 @@
 # IS2 Project
 Software developed to Small Business
 
-## Run in your PC (Windows)
-👉🏻 Download exe: ([https://barbershop-app-web.herokuapp.com/](https://drive.google.com/drive/folders/1FotUT66_XGW3O3HE1vOEoXkjh4skpV32?usp=sharing))
+## Run it on your PC (Windows)
+👉🏻 Download exe: ([https://drive.google.com/drive/folders/1FotUT66_XGW3O3HE1vOEoXkjh4skpV32?usp=sharing])
 
 😎 You can use this temp credentials (<Panel de Control> in footer):
 - user: cristhian.martinez
