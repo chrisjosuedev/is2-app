@@ -3,7 +3,7 @@ Software developed to Small Business
 
 ## Run it on your PC (Windows)
 👉🏻 Download exe: ([https://drive.google.com/drive/folders/1FotUT66_XGW3O3HE1vOEoXkjh4skpV32?usp=sharing])
-👉🏻 Run `IS2 Solutions App.exe`in `win-unpacked` folder.
+👉🏻 Run `IS2 Solutions App.exe` in `win-unpacked` folder.
 
 😎 You can use this temp credentials (<Panel de Control> in footer):
 - user: cristhian.martinez
